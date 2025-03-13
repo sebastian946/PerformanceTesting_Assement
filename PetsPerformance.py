@@ -35,7 +35,7 @@ class PetStoreUser(HttpUser):
                 "name": "string"
             }
         ],
-        "status": "available"
+        "status": "sold"
     }
 
     @task
@@ -58,7 +58,7 @@ class PetStoreUser(HttpUser):
             "accept": "application/json"
         }
         response = self.client.get(
-            "/pet/findByStatus?status=available",
+            "/api/v3/pet/findByStatus?status=available",
             headers=headers
         )
         print(f"Find Pets by Status Response: {response.text}")
